@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <string name="freshchat_file_provider_authority">com.freshchat.flutter_freshchat.provider</string>
+</resources>
