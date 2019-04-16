@@ -1,7 +1,5 @@
 # flutter_freshchat
 
-[![pub package](https://img.shields.io/pub/v/url_launcher.svg)](https://pub.dartlang.org/packages/url_launcher)
-
 A Flutter plugin for integrating Freshchat in your mobile app. Supports android only atleast for now.
 
 ## Usage
@@ -61,13 +59,13 @@ await FlutterFreshchat.resetUser();
 
 ## Example
 
-Find the example wiring in the [Flutter_Freshchat example application](https://github.com/flutter/plugins/blob/master/packages/google_sign_in/example/lib/main.dart).
+Find the example wiring in the [Flutter_Freshchat example application](https://github.com/fayeed/flutter_freshchat/blob/master/example/lib/main.dart).
 
 ## API details
 
-See the [flutter_freshchat.dart](https://github.com/flutter/plugins/blob/master/packages/google_sign_in/lib/google_sign_in.dart) for more API details
+See the [flutter_freshchat.dart](https://github.com/fayeed/flutter_freshchat/blob/master/lib/flutter_freshchat.dart) for more API details
 
 ## Issues and feedback
 
-Please file [issues](https://github.com/flutter/flutter/issues/new)
+Please file [issues](https://github.com/fayeed/flutter_freshchat/issues)
 to send feedback or report a bug. Thank you!
