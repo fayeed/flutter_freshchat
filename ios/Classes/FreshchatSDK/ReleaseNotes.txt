@@ -1,0 +1,210 @@
+Freshchat iOS SDK - Powered by Freshdesk
+
+Documentation   : https://support.freshchat.com
+Support Email   : support@freshchat.com
+Version         : 2.5.1
+
+Ver 2.5.1 
+__________________________
+Enhancement :
+- Improvements in keychain store.
+
+Ver 2.5.0 
+__________________________
+Enhancement :
+- Improvements in keychain store.
+
+Ver 2.4.4 
+__________________________
+Bug Fix :
+- Improved user experience during API failures.
+
+Ver 2.4.3 
+__________________________
+Enhancement :
+- Improvements in logic to load new messages for conversations
+
+Ver 2.4.2 
+__________________________
+Bug Fix:
+- Trigger Restore ID event when there is change in restore ID and external ID.
+
+Ver 2.4.1 
+__________________________
+Bug Fix:
+- Custom localised strings being cleared on resetUser
+
+Ver 2.4.0 
+__________________________
+Enhancement :
+- Add FAQ options flag showContactUsOnFaqNotHelpful for showing ContactUs in article detail view
+Changes: 
+- When `showContactUsOnAppBar` is true, contact us button will be shown in app bar only
+Fix :
+- Invalid image asset reference
+
+Ver 2.3.0 
+__________________________
+Enhancement
+- Graceful handling of unsupported messages
+
+Ver 2.2.0 
+__________________________
+Enhancements:
+- Ability to configure custom response expectations and away message for channels.
+- Config to hide response time.
+Fix:
+- Fix stale cache of response time.
+
+Ver 2.1.0 
+__________________________
+Enhancement
+- Ability to mask sensitive data present in user message
+
+Ver 2.0.0 
+__________________________
+Enhancements
+- Ability to intercept all external links
+- Securely identify and restore users using Id Tokens (JWT)
+- Ability to intercept Freshchat notification
+- Ability to listen to Freshchat events like message sent, message received, etc.
+
+Ver 1.5.6 
+__________________________
+Enhancement:
+- Ability to hide historical response time.
+Change:
+- Updated FAQ helpful prompt string to “Was this FAQ helpful?”.
+
+Ver 1.5.5 
+__________________________
+Fixes build issue with Xcode 10.
+
+Ver 1.5.4 
+__________________________
+Theme fixes and UI enhancements for chat resolution prompt
+
+Ver 1.5.3 
+__________________________
+Fix: Fallback to default theme if custom theme is missing
+UI optimisation for newer devices
+
+Ver 1.5.2 
+__________________________
+Display brand's name or default text (Support) as name when TeamMemberInfoVisible is false
+
+Ver 1.5.1 
+__________________________
+Agent avatar behaviour change - specific order of fallback (agent avatar, then custom static icon, then app icon)
+iPhoneX image preview changes
+
+Ver 1.5.0 
+__________________________
+Support for auto expiring Customer Satisfaction Surveys
+Add support for overriding CSAT survey's question
+Action name for unread count API  changed to FRESHCHAT_UNREAD_MESSAGE_COUNT_CHANGED
+
+Ver 1.4.6 
+__________________________
+Fix theme color for message text
+Make push prompt configurable
+
+Ver 1.4.5 
+__________________________
+Fix marketing campaign notifications not showing when app is open
+
+Ver 1.4.4 
+__________________________
+Display files sent by user from other platforms
+
+Ver 1.4.3 
+__________________________
+Fix rare issue with first user message displaying twice over
+
+Ver 1.4.2 
+__________________________
+Support for locale changes at runtime
+Fix channel icon in in-app notification
+Fix theme issue with back button when closing gallery
+
+Ver 1.4.1 
+__________________________
+Fix regression with user updates
+
+Ver 1.4.0 
+__________________________
+Graceful handling of deleted users and accounts
+
+Ver 1.3.3 
+__________________________
+Bug Fixes
+
+Ver 1.3.2 
+__________________________
+Support for historical response time if current response time is not available
+Enhancements and bug fixes
+
+Ver 1.3.1 
+__________________________
+-Team Member info now controlled by a unified flag (teamMemberInfoVisible)
+-Message cell rendering fixes for orientation changes
+-Miscellaneous fixes
+
+Ver 1.3.0 
+__________________________
+SDK header file name updated to FreshchatSDK.h for naming consistency.
+Better rendering support for RTL content.
+
+Ver 1.2.5 
+__________________________
+Fixes for Swift project crashes and misc fixes.
+
+Ver 1.2.4 
+__________________________
+Remove unused microphone permission
+
+Ver 1.2.3 
+__________________________
+UI improvements for iPhoneX devices.
+Minor bugs fixes.
+
+Ver 1.2.2
+__________________________
+Fixes for on-demand init when showing conversations with tags.
+Fixes for text alignment in message bubble.
+
+Ver 1.2.1 
+__________________________
+Update refresh intervals
+
+Ver 1.2.0 
+__________________________
+User restore functionality
+Minor bug fixes and improvements
+
+Ver 1.1.1 
+__________________________
+Minor UI fixes
+
+Ver 1.1.0 
+__________________________
+- Changes for SDK Theming.
+- Added Send message api.
+- Minor bug fixes
+
+Ver 1.0.2
+__________________________
+Fix for potential issues when migrating from Hotline.
+
+Ver 1.0.1 
+__________________________
+Minor bug fixes
+
+Ver 1.0.0 
+__________________________
+"Modern messaging software that your sales and customer engagement teams will love"
+Features :
+- Offline FAQs.
+- Message Channels.
+- Campaign Messages.
+- Customer Satisfaction Survey for Channels.
