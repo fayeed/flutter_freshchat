@@ -1,6 +1,6 @@
 # flutter_freshchat
 
-A Flutter plugin for integrating Freshchat in your mobile app. Supports android only atleast for now.
+A Flutter plugin for integrating Freshchat in your mobile app.
 
 ## Usage
 
