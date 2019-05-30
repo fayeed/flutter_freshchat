@@ -1,3 +1,7 @@
+## 1.0.0
+
+- Added support for IOS
+
 ## 0.0.3
 
 - MIT License added
