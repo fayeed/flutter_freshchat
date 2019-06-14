@@ -1,5 +1,10 @@
 ## 1.1.1
 
+- Added a customProperties field to the updateUserInfo method
+- Added support for IOS
+
+## 1.1.1
+
 - Camera enabled option added
 
 ## 1.1.0
