@@ -2,6 +2,30 @@
 
 A Flutter plugin for integrating Freshchat in your mobile app.
 
+## Setup
+
+### Android
+
+Add this to your `AndroidManifest.xml`
+
+```xml
+<provider
+    android:name="android.support.v4.content.FileProvider"
+    android:authorities="com.example.demoapp.provider"
+    android:exported="false"
+    android:grantUriPermissions="true">
+    <meta-data
+        android:name="android.support.FILE_PROVIDER_PATHS"
+        android:resource="@xml/freshchat_file_provider_paths" />
+</provider>
+```
+
+Add this to your `Strings.xml` located inside `android/src/res/values`
+
+```xml
+<string name="freshchat_file_provider_authority">com.example.demoapp.provider</string>
+```
+
 ## Usage
 
 To use this plugin, add `flutter_freshchat` as a [dependency in your pubspec.yaml file](https://flutter.io/platform-plugins/).
