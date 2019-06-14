@@ -34,7 +34,9 @@ To use this plugin, add `flutter_freshchat` as a [dependency in your pubspec.yam
 import 'package:flutter_freshchat/flutter_freshchat.dart';
 ```
 
-Initialize the Freshchat app with `appID` and `appKey` which you could get from here: [Where to find App ID and App Key](https://support.freshchat.com/support/solutions/articles/229192)
+Initialize the Freshchat app with `appID` and `appKey` which you could get from here: [Where to find App ID and App Key](https://support.freshchat.com/support/solutions/articles/229192)\
+It also has `cameraEnabled` parameter with default value set to `true`.\
+You can disable the camera by setting it to `false`.
 
 ```dart
 await FlutterFreshchat.init(appID: 'YOUR_APP_ID_HERE', appKey: 'YOUR_APP_KEY_HERE');

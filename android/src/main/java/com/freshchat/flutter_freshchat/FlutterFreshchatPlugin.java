@@ -48,7 +48,11 @@ public class FlutterFreshchatPlugin implements MethodCallHandler {
         case METHOD_INIT:
             final String appID = call.argument("appID");
             final String appKey = call.argument("appKey");
+            final boolean cameraEnabled = call.argument("cameraEnabled");
+
             FreshchatConfig freshchatConfig = new FreshchatConfig(appID, appKey);
+            freshchatConfig.setCameraCaptureEnabled(cameraEnabled);
+
             Freshchat.getInstance(this.activity.getApplicationContext()).init(freshchatConfig);
             result.success(true);
             break;
