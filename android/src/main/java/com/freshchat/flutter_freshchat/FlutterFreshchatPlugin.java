@@ -45,87 +45,95 @@ public class FlutterFreshchatPlugin implements MethodCallHandler {
     public void onMethodCall(MethodCall call, final Result result) {
 
         switch (call.method) {
-            case METHOD_INIT:
-                final String appID = call.argument("appID");
-                final String appKey = call.argument("appKey");
-                FreshchatConfig freshchatConfig = new FreshchatConfig(appID, appKey);
-                Freshchat.getInstance(this.activity.getApplicationContext()).init(freshchatConfig);
-                result.success(true);
-                break;
-            case METHOD_IDENTIFY_USER:
-                final String externalId = call.argument("externalID");
-                String restoreId = call.argument("restoreID");
+        case METHOD_INIT:
+            final String appID = call.argument("appID");
+            final String appKey = call.argument("appKey");
+            FreshchatConfig freshchatConfig = new FreshchatConfig(appID, appKey);
+            Freshchat.getInstance(this.activity.getApplicationContext()).init(freshchatConfig);
+            result.success(true);
+            break;
+        case METHOD_IDENTIFY_USER:
+            final String externalId = call.argument("externalID");
+            String restoreId = call.argument("restoreID");
 
-                try {
-                    if (restoreId == "") {
-                        Freshchat.getInstance(this.activity.getApplicationContext()).identifyUser(externalId, null);
-                        restoreId = Freshchat.getInstance(this.activity.getApplicationContext()).getUser().getRestoreId();
-                    } else {
-                        Freshchat.getInstance(this.activity.getApplicationContext()).identifyUser(externalId, restoreId);
-                    }
-                } catch (MethodNotAllowedException e) {
-                    e.printStackTrace();
-                    result.error("Error while identifying User", "error", e);
-                }
-                result.success(restoreId);
-                break;
-            case METHOD_UPDATE_USER_INFO:
-                final String firstName = call.argument("firstName");
-                final String email = call.argument("email");
-                FreshchatUser freshchatUser = Freshchat.getInstance(this.activity.getApplicationContext()).getUser();
-                freshchatUser.setFirstName(firstName);
-                freshchatUser.setEmail(email);
-                try {
-                    Freshchat.getInstance(this.activity.getApplicationContext()).setUser(freshchatUser);
-                } catch (MethodNotAllowedException e) {
-                    e.printStackTrace();
-                    result.error("Error while setting User", "error", e);
-                }
-                result.success(true);
-                break;
-            case METHOD_SHOW_CONVERSATIONS:
-                final ArrayList tags = call.argument("tags");
-                final String title = call.argument("title");
-                if (tags.size() > 0) {
-                    ConversationOptions convOptions = new ConversationOptions().filterByTags(tags, title);
-                    Freshchat.showConversations(this.activity, convOptions);
+            try {
+                if (restoreId == "") {
+                    Freshchat.getInstance(this.activity.getApplicationContext()).identifyUser(externalId, null);
+                    restoreId = Freshchat.getInstance(this.activity.getApplicationContext()).getUser().getRestoreId();
                 } else {
-                    Freshchat.showConversations(this.activity.getApplicationContext());
+                    Freshchat.getInstance(this.activity.getApplicationContext()).identifyUser(externalId, restoreId);
                 }
-                result.success(true);
-                break;
-            case METHOD_SHOW_FAQS:
-                final boolean showFaqCategoriesAsGrid = call.argument("showFaqCategoriesAsGrid");
-                final boolean showContactUsOnAppBar = call.argument("showContactUsOnAppBar");
-                final boolean showContactUsOnFaqScreens = call.argument("showContactUsOnFaqScreens");
-                final boolean showContactUsOnFaqNotHelpful = call.argument("showContactUsOnFaqNotHelpful");
+            } catch (MethodNotAllowedException e) {
+                e.printStackTrace();
+                result.error("Error while identifying User", "error", e);
+            }
+            result.success(restoreId);
+            break;
+        case METHOD_UPDATE_USER_INFO:
+            final String firstName = call.argument("first_name");
+            final String email = call.argument("email");
+            final String phone = call.argument("phone");
+            final String lastName = call.argument("last_name");
+            final String createdTime = call.argument("created_time");
+            final String phoneCountryCode = call.argument("phone_country_code");
 
-                FaqOptions faqOptions = new FaqOptions().showFaqCategoriesAsGrid(showFaqCategoriesAsGrid)
-                        .showContactUsOnAppBar(showContactUsOnAppBar).showContactUsOnFaqScreens(showContactUsOnFaqScreens)
-                        .showContactUsOnFaqNotHelpful(showContactUsOnFaqNotHelpful);
+            FreshchatUser freshchatUser = Freshchat.getInstance(this.activity.getApplicationContext()).getUser();
+            freshchatUser.setFirstName(firstName);
+            freshchatUser.setEmail(email);
+            freshchatUser.setPhone(phoneCountryCode, phone);
+            freshchatUser.setLastName(lastName);
 
-                Freshchat.showFAQs(this.activity, faqOptions);
-                result.success(true);
-                break;
-            case METHOD_GET_UNREAD_MESSAGE_COUNT:
-                Freshchat.getInstance(this.activity.getApplicationContext()).getUnreadCountAsync(new UnreadCountCallback() {
-                    @Override
-                    public void onResult(FreshchatCallbackStatus freshchatCallbackStatus, int i) {
-                        result.success(i);
-                    }
-                });
-                break;
-            case METHOD_SETUP_PUSH_NOTIFICATIONS:
-                final String token = call.argument("token");
-                Freshchat.getInstance(this.activity.getApplicationContext()).setPushRegistrationToken(token);
-                result.success(true);
-                break;
-            case METHOD_RESET_USER:
-                Freshchat.resetUser(this.activity.getApplicationContext());
-                result.success(true);
-                break;
-            default:
-                result.notImplemented();
+            try {
+                Freshchat.getInstance(this.activity.getApplicationContext()).setUser(freshchatUser);
+            } catch (MethodNotAllowedException e) {
+                e.printStackTrace();
+                result.error("Error while setting User", "error", e);
+            }
+            result.success(true);
+            break;
+        case METHOD_SHOW_CONVERSATIONS:
+            final ArrayList tags = call.argument("tags");
+            final String title = call.argument("title");
+            if (tags.size() > 0) {
+                ConversationOptions convOptions = new ConversationOptions().filterByTags(tags, title);
+                Freshchat.showConversations(this.activity, convOptions);
+            } else {
+                Freshchat.showConversations(this.activity.getApplicationContext());
+            }
+            result.success(true);
+            break;
+        case METHOD_SHOW_FAQS:
+            final boolean showFaqCategoriesAsGrid = call.argument("showFaqCategoriesAsGrid");
+            final boolean showContactUsOnAppBar = call.argument("showContactUsOnAppBar");
+            final boolean showContactUsOnFaqScreens = call.argument("showContactUsOnFaqScreens");
+            final boolean showContactUsOnFaqNotHelpful = call.argument("showContactUsOnFaqNotHelpful");
+
+            FaqOptions faqOptions = new FaqOptions().showFaqCategoriesAsGrid(showFaqCategoriesAsGrid)
+                    .showContactUsOnAppBar(showContactUsOnAppBar).showContactUsOnFaqScreens(showContactUsOnFaqScreens)
+                    .showContactUsOnFaqNotHelpful(showContactUsOnFaqNotHelpful);
+
+            Freshchat.showFAQs(this.activity, faqOptions);
+            result.success(true);
+            break;
+        case METHOD_GET_UNREAD_MESSAGE_COUNT:
+            Freshchat.getInstance(this.activity.getApplicationContext()).getUnreadCountAsync(new UnreadCountCallback() {
+                @Override
+                public void onResult(FreshchatCallbackStatus freshchatCallbackStatus, int i) {
+                    result.success(i);
+                }
+            });
+            break;
+        case METHOD_SETUP_PUSH_NOTIFICATIONS:
+            final String token = call.argument("token");
+            Freshchat.getInstance(this.activity.getApplicationContext()).setPushRegistrationToken(token);
+            result.success(true);
+            break;
+        case METHOD_RESET_USER:
+            Freshchat.resetUser(this.activity.getApplicationContext());
+            result.success(true);
+            break;
+        default:
+            result.notImplemented();
         }
     }
 }

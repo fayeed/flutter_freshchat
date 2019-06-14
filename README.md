@@ -40,10 +40,17 @@ Initialize the Freshchat app with `appID` and `appKey` which you could get from 
 await FlutterFreshchat.init(appID: 'YOUR_APP_ID_HERE', appKey: 'YOUR_APP_KEY_HERE');
 ```
 
-Update the user info by setting to values `FirstName` and `email`
+Update the user info by setting by creating a `User` object
 
 ```dart
-await FlutterFreshchat.updateUserInfo(firstName: 'FIRST_NAME_HERE', email: 'EMAIL_HERE');
+User user = User.initail();
+user.email = "jhon@test.com";
+user.firstName = "jhon";
+user.lastName = "doe";
+user.phoneCountryCode = "+91";
+user.phone = "0123456789";
+
+await FlutterFreshchat.updateUserInfo(user: user);
 ```
 
 Identify the user user by usin email address or any way you uniquely identify the user.
