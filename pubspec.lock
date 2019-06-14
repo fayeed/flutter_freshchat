@@ -39,13 +39,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  localstorage:
-    dependency: "direct main"
-    description:
-      name: localstorage
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.0"
   matcher:
     dependency: transitive
     description:
@@ -67,13 +60,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.6.2"
-  path_provider:
-    dependency: transitive
-    description:
-      name: path_provider
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.1.0"
   pedantic:
     dependency: transitive
     description:
@@ -151,4 +137,3 @@ packages:
     version: "2.0.8"
 sdks:
   dart: ">=2.2.0 <3.0.0"
-  flutter: ">=0.1.4 <2.0.0"

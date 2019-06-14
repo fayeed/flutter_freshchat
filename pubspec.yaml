@@ -9,7 +9,6 @@ environment:
 
 dependencies:
   meta: ^1.1.6
-  localstorage: ^2.0.0
   flutter:
     sdk: flutter
 
