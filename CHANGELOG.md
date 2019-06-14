@@ -1,4 +1,4 @@
-## 1.1.1
+## 1.1.2
 
 - Added a customProperties field to the updateUserInfo method
 - Added support for IOS
