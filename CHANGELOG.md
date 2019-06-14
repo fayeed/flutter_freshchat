@@ -1,3 +1,8 @@
+## 1.1.0
+
+- Added support for all user properties
+- Fixed an issue where installing the same plugin on multiple app would not allow the other app to install due to same ContentProvider was being used
+
 ## 1.0.0
 
 - Added support for IOS
