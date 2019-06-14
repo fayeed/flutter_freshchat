@@ -80,6 +80,7 @@ public class FlutterFreshchatPlugin implements MethodCallHandler {
             final String lastName = call.argument("last_name");
             final String createdTime = call.argument("created_time");
             final String phoneCountryCode = call.argument("phone_country_code");
+            final Map<String, String> customProperties = call.argument("custom_property_list");
 
             FreshchatUser freshchatUser = Freshchat.getInstance(this.activity.getApplicationContext()).getUser();
             freshchatUser.setFirstName(firstName);
@@ -89,6 +90,10 @@ public class FlutterFreshchatPlugin implements MethodCallHandler {
 
             try {
                 Freshchat.getInstance(this.activity.getApplicationContext()).setUser(freshchatUser);
+
+                if (customProperties != null) {
+                    Freshchat.getInstance(this.activity.getApplicationContext()).setUserProperties(customProperties);
+                }
             } catch (MethodNotAllowedException e) {
                 e.printStackTrace();
                 result.error("Error while setting User", "error", e);

@@ -42,10 +42,10 @@ You can disable the camera by setting it to `false`.
 await FlutterFreshchat.init(appID: 'YOUR_APP_ID_HERE', appKey: 'YOUR_APP_KEY_HERE');
 ```
 
-Update the user info by setting by creating a `User` object
+Update the user info by setting by creating a `FreshchatUser` object
 
 ```dart
-User user = User.initail();
+FreshchatUser user = FreshchatUser.initail();
 user.email = "jhon@test.com";
 user.firstName = "jhon";
 user.lastName = "doe";
@@ -53,6 +53,12 @@ user.phoneCountryCode = "+91";
 user.phone = "0123456789";
 
 await FlutterFreshchat.updateUserInfo(user: user);
+
+// Custom properties can be set by creating a Map<String, String>
+Map<String, String> customProperties = Map<String, String>();
+customProperties["loggedIn"] = "true";
+
+await FlutterFreshchat.updateUserInfo(user: user, customProperties: customProperties);
 ```
 
 Identify the user user by usin email address or any way you uniquely identify the user.

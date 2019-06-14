@@ -1,6 +1,6 @@
 part of firebase_auth;
 
-class User {
+class FreshchatUser {
   String id;
   String email;
   String referenceId;
@@ -10,7 +10,7 @@ class User {
   String lastName;
   String phoneCountryCode;
 
-  User.initail()
+  FreshchatUser.initail()
       : id = "",
         email = "",
         referenceId = "",
@@ -20,7 +20,7 @@ class User {
         lastName = "",
         phoneCountryCode = "";
 
-  User.fromJson(Map<String, dynamic> json) {
+  FreshchatUser.fromJson(Map<String, dynamic> json) {
     id = json["id"];
     email = json["email"];
     referenceId = json["reference_id"];

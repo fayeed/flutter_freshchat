@@ -11,11 +11,11 @@ public class SwiftFlutterFreshchatPlugin: NSObject, FlutterPlugin {
     private static let METHOD_GET_UNREAD_MESSAGE_COUNT = "getUnreadMsgCount"
     private static let METHOD_SETUP_PUSH_NOTIFICATIONS = "setupPushNotifications"
     private let registrar: FlutterPluginRegistrar
-    
+
     init(registrar: FlutterPluginRegistrar) {
         self.registrar = registrar
     }
-    
+
     private var vc: UIViewController {
         get {
             return UIApplication.shared.keyWindow!.rootViewController!
@@ -54,9 +54,17 @@ public class SwiftFlutterFreshchatPlugin: NSObject, FlutterPlugin {
             case SwiftFlutterFreshchatPlugin.METHOD_UPDATE_USER_INFO:
                 let arguments = call.arguments as! [String: String]
                 let user = FreshchatUser.sharedInstance()
-                user?.firstName = arguments["firstName"]
+                user?.firstName = arguments["first_name"]
+                user?.lastName = arguments["last_name"]
+                user?.phoneNumber  = arguments["phone"]
                 user?.email = arguments["email"]
+                user?.phoneCountryCode = arguments["phone_country_code"]
+
                 Freshchat.sharedInstance().setUser(user)
+
+                for (kind, value) in arguments["custom_property_list"] {
+                    Freshchat.sharedInstance().setUserPropertyforKey(kind, withValue: value)
+                }
                 result(true)
 
             case SwiftFlutterFreshchatPlugin.METHOD_SHOW_CONVERSATIONS:
@@ -67,7 +75,7 @@ public class SwiftFlutterFreshchatPlugin: NSObject, FlutterPlugin {
                 if (tags.count > 0) {
                     let options = ConversationOptions.init()
                     options.filter(byTags: tags, withTitle: title)
-                    
+
                     Freshchat.sharedInstance().showConversations(vc, with: options)
                 } else {
                     Freshchat.sharedInstance().showConversations(vc)

@@ -120,7 +120,7 @@ class UpdateUserInfoState extends State<UpdateUserInfoScreen> {
 
                     await storage.setItem('uid', this._email);
 
-                    User user = User.initail();
+                    FreshchatUser user = FreshchatUser.initail();
                     user.email = _email;
                     user.firstName = _firstName;
                     user.lastName = _lastName;

@@ -17,8 +17,12 @@ class FlutterFreshchat {
     return result;
   }
 
-  static Future<bool> updateUserInfo({@required User user}) async {
+  static Future<bool> updateUserInfo(
+      {@required FreshchatUser user,
+      Map<String, String> customProperties}) async {
     Map<String, dynamic> json = user.toJson();
+
+    json['custom_property_list'] = customProperties;
 
     final bool result = await _channel.invokeMethod('updateUserInfo', json);
     return result;
