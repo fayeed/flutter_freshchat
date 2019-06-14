@@ -1,3 +1,7 @@
+## 1.1.1
+
+- Camera enabled option added
+
 ## 1.1.0
 
 - Added support for all user properties
