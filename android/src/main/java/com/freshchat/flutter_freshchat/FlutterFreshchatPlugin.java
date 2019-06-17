@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import com.freshchat.consumer.sdk.FaqOptions;
 import com.freshchat.consumer.sdk.Freshchat;
