@@ -1,3 +1,11 @@
+## 1.1.4
+
+- Use application instead of activity to avoid duplicate applications
+
+## 1.1.3
+
+- Fixed as issue with Map class not being imported in android
+
 ## 1.1.2
 
 - Added a customProperties field to the updateUserInfo method
