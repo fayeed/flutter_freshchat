@@ -1,3 +1,11 @@
+## 1.1.6
+
+- Meta dependency removed & updated the example
+
+## 1.1.5
+
+- A type checking issue in IOS plugin while updating use info fixed
+
 ## 1.1.4
 
 - Use application instead of activity to avoid duplicate applications

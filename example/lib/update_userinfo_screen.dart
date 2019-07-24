@@ -46,6 +46,7 @@ class UpdateUserInfoState extends State<UpdateUserInfoScreen> {
                   if (value.isEmpty) {
                     return "Please enter some text";
                   }
+                  return null;
                 },
               ),
               TextFormField(
@@ -58,6 +59,7 @@ class UpdateUserInfoState extends State<UpdateUserInfoScreen> {
                   if (value.isEmpty) {
                     return "Please enter some text";
                   }
+                  return null;
                 },
               ),
               TextFormField(
@@ -72,6 +74,7 @@ class UpdateUserInfoState extends State<UpdateUserInfoScreen> {
                   if (value.isEmpty) {
                     return "Please enter some text";
                   }
+                  return null;
                 },
               ),
               Row(
@@ -91,6 +94,7 @@ class UpdateUserInfoState extends State<UpdateUserInfoScreen> {
                         } else if (value.length < 2) {
                           return "Please enter 3 characters";
                         }
+                        return null;
                       },
                     ),
                   ),
@@ -108,6 +112,7 @@ class UpdateUserInfoState extends State<UpdateUserInfoScreen> {
                         if (value.isEmpty) {
                           return "Please enter some text";
                         }
+                        return null;
                       },
                     ),
                   ),

@@ -103,13 +103,10 @@ class _MyAppState extends State<MyApp> {
 }
 
 class ListItem extends StatelessWidget {
-  String item;
-  Function onTap;
+  final String item;
+  final Function onTap;
 
-  ListItem({@required String item, @required Function onTap}) {
-    this.item = item;
-    this.onTap = onTap;
-  }
+  ListItem({@required this.item, @required this.onTap});
 
   @override
   Widget build(BuildContext context) {
