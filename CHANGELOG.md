@@ -1,3 +1,7 @@
+## 1.1.7
+
+- Small type casting issues fixed with IOS plugin
+
 ## 1.1.6
 
 - Meta dependency removed & updated the example
