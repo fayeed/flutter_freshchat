@@ -1,3 +1,7 @@
+## 1.1.8
+
+- IOS crash fixed
+
 ## 1.1.7
 
 - Small type casting issues fixed with IOS plugin

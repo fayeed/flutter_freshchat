@@ -4,10 +4,11 @@ class FlutterFreshchat {
   static const MethodChannel _channel =
       const MethodChannel('flutter_freshchat');
 
-  static Future<bool> init(
-      {@required String appID,
-      @required String appKey,
-      bool cameraEnabled = true}) async {
+  static Future<bool> init({
+    @required String appID,
+    @required String appKey,
+    bool cameraEnabled = true,
+  }) async {
     final Map<String, dynamic> params = <String, dynamic>{
       'appID': appID,
       'appKey': appKey,

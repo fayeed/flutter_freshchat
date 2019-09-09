@@ -31,9 +31,9 @@ public class SwiftFlutterFreshchatPlugin: NSObject, FlutterPlugin {
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         switch(call.method){
             case SwiftFlutterFreshchatPlugin.METHOD_INIT:
-                let arguments = call.arguments as! [String: String]
-                let appID = arguments["appID"]
-                let appKey = arguments["appKey"]
+                let arguments = call.arguments as! [String: Any]
+                let appID = arguments["appID"] as! String
+                let appKey = arguments["appKey"] as! String
                 let freshchatConfig = FreshchatConfig.init(appID: appID, andAppKey: appKey)
                 Freshchat.sharedInstance().initWith(freshchatConfig)
                 result(true)
