@@ -1,3 +1,7 @@
+## 1.2.0
+
+- Documentation updated
+
 ## 1.1.8
 
 - IOS crash fixed
