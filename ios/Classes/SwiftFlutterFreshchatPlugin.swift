@@ -53,7 +53,7 @@ public class SwiftFlutterFreshchatPlugin: NSObject, FlutterPlugin {
 
             case SwiftFlutterFreshchatPlugin.METHOD_UPDATE_USER_INFO:
                 let arguments = call.arguments as! [String: Any]
-                let customProperties = arguments["custom_property_list"] as! [String: String]
+                let customProperties = arguments["custom_property_list"] as? [String: String]
                 let user = FreshchatUser.sharedInstance()
                 user?.firstName = arguments["first_name"] as? String
                 user?.lastName = arguments["last_name"] as? String
@@ -63,10 +63,8 @@ public class SwiftFlutterFreshchatPlugin: NSObject, FlutterPlugin {
 
                 Freshchat.sharedInstance().setUser(user)
 
-                if (customProperties != nil) {
-                    for (kind, value) in customProperties {
-                        Freshchat.sharedInstance().setUserPropertyforKey(kind, withValue: value)
-                    }
+                for (kind, value) in customProperties ?? [:] {
+                    Freshchat.sharedInstance().setUserPropertyforKey(kind, withValue: value)
                 }
 
                 result(true)
