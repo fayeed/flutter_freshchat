@@ -1,3 +1,8 @@
+## 1.2.1
+
+- Freshchat android dependency updated to version `2.9.0` from `2.4.1`
+
+
 ## 1.2.0
 
 - Documentation updated
