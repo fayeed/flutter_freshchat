@@ -51,13 +51,13 @@ Add this to your `Strings.xml` located inside `android/src/res/values`
     <string>To take Images from Camera</string>
 ```
 
-4. At this point if you try to build you will get an error something related to duplicate `info.plist` (Note: It's something to do with Freshchat) you can remove this info by following the below instructions:
+<!-- 4. At this point if you try to build you will get an error something related to duplicate `info.plist` (Note: It's something to do with Freshchat) you can remove this info by following the below instructions:
 
 - Open your `.xcworkspace` in xcode.
 - Goto to `Pods`.
 - Select target `flutter_freshchat`.
 - Select Build Phases and then go to Compile Sources.
-- Look for two `info.plist` entries and remove them.
+- Look for two `info.plist` entries and remove them. -->
 
 
 
