@@ -9,17 +9,65 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+/*
+ * Enum for FAQ filter type
+ */
 enum TagFilterType {
     ARTICLE  = 1,
     CATEGORY = 2
 };
+
+/*
+ * Events Enum for freshchat screen
+ */
+typedef enum {
+    FCEventFAQCategoryListOpen,
+    FCEventFAQListOpen,
+    FCEventFAQOpen,
+    FCEventFAQSearch,
+    FCEventFAQVote,
+    FCEventChannelListOpen,
+    FCEventMessageSent,
+    FCEventConversationOpen,
+    FCEventCSatOpen,
+    FCEventCSatSubmit,
+    FCEventCSatExpiry,
+    FCEventLinkTap,
+    FCEventScreenView,
+    FCEventMessageReceive,
+    FCEventNotificationReceive,
+    FCEventIdTokenStatusChange
+} FCEvent;
+
+/*
+ * Parameter enums for events
+ */ 
+typedef enum {
+    FCPropertyFAQCategoryID,
+    FCPropertyFAQCategoryName,
+    FCPropertyFAQID,
+    FCPropertyFAQTitle,
+    FCPropertySearchKey,
+    FCPropertySearchFAQCount,
+    FCPropertyChannelID,
+    FCPropertyChannelName,
+    FCPropertyConversationID,
+    FCPropertyIsHelpful,
+    FCPropertyIsRelevant,
+    FCPropertyInputTags,
+    FCPropertyRating,
+    FCPropertyResolutionStatus,
+    FCPropertyComment,
+    FCPropertyURL
+} FCEventProperty;
+
 
 #define FRESHCHAT_DID_FINISH_PLAYING_AUDIO_MESSAGE @"com.freshworks.freshchat_play_inapp_audio"
 #define FRESHCHAT_WILL_PLAY_AUDIO_MESSAGE @"com.freshworks.freshchat_pause_inapp_audio"
 #define FRESHCHAT_USER_RESTORE_ID_GENERATED @"com.freshworks.freshchat_user_restore_id_generated"
 #define FRESHCHAT_USER_LOCALE_CHANGED @"com.freshworks.freshchat_user_locale_changed"
 #define FRESHCHAT_UNREAD_MESSAGE_COUNT_CHANGED @"com.freshworks.freshchat_unread_message_count_changed"
-#define FRESHCHAT_ACTION_USER_ACTIONS @"com.freshworks.freshchat_action_user_actions"
+#define FRESHCHAT_EVENTS @"com.freshworks.freshchat_events"
 
 @class FreshchatConfig, FreshchatUser, FAQOptions, ConversationOptions, FreshchatMessage;
 
@@ -495,6 +543,34 @@ enum TagFilterType {
  *  Tags used for filtering the channels list
  */
 -(NSArray *)tags;
+
+@end
+
+/**
+ * Events handling with Freshchat
+ */
+@interface FreshchatEvent: NSObject
+
+/**
+ * Event name for Freshchat screen
+ */
+@property (nonatomic, assign) FCEvent name;
+
+/*
+ * Parameter dictionary for a Freshchat screen's event
+ */
+@property (strong, nonatomic) NSDictionary *properties;
+
+/**
+ * Freshchat screens's event value
+ *
+ * @discussion this method lets you to get value for a Freshchat event property
+ *
+ * @param Enum parameter key for event
+ *
+ */
+- (id) valueForEventProperty : (FCEventProperty) property;
+
 
 @end
 

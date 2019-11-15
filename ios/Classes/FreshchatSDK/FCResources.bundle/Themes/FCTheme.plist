@@ -668,6 +668,8 @@
 		<string>FCResources.bundle/Images/freshchat_channels_image</string>
 		<key>FAQImage</key>
 		<string>FCResources.bundle/Images/freshchat_faq_image</string>
+		<key>CloseButton</key>
+		<string></string>
 	</dict>
 </dict>
 </plist>

@@ -2,7 +2,48 @@ Freshchat iOS SDK - Powered by Freshdesk
 
 Documentation   : https://support.freshchat.com
 Support Email   : support@freshchat.com
-Version         : 2.5.1
+Version         : 2.7.1
+
+Ver 2.7.1 
+__________________________
+Enhancements :
+- Added option to set image for close button.
+- Custom theme retention across user sessions if not initialised.
+Bug Fixes :
+- Fixed background scrolling in message list screen.
+- UI improvements for newer devices.
+
+Ver 2.7.0 
+__________________________
+Enhancements :
+- Added new user events.
+- Events are richer with metdata.
+Breaking change :
+- Action name for user events change from `FRESHCHAT_ACTION_USER_ACTIONS` to `FRESHCHAT_EVENTS`.
+- Change in format of the event object (the key for the information is now  `event` instead of `action`).
+
+Ver 2.6.2 
+__________________________
+Bug fix :
+- Fix Away Messages not being displayed due to an incompatibility in version 2.6.0 and 2.6.1
+
+Ver 2.6.1 
+__________________________
+Enhancements :
+- Once the article is updated, users will again see the voting option.
+- Now users will be able to message you from the downvoted article screen, even if they leave and come back again.
+
+Ver 2.6.0 
+__________________________
+Feature :
+- Hide resolved messages for conversation with defined interval.
+Bug fixes :
+- Dismiss CSAT if expired.
+- Correct alignment of text bar for keyboard with text prediction.
+
+Ver 2.5.2 
+__________________________
+Fix file access permission for background access to database.
 
 Ver 2.5.1 
 __________________________
