@@ -1,3 +1,7 @@
+## 1.2.3
+
+- Upgraded iOS sdk to 2.9.0.
+
 ## 1.2.2
 
 - Extra info.plist removed from freshchat.
