@@ -2,7 +2,30 @@ Freshchat iOS SDK - Powered by Freshdesk
 
 Documentation   : https://support.freshchat.com
 Support Email   : support@freshchat.com
-Version         : 2.7.1
+Version         : 2.9.0
+
+Ver 2.9.0 
+__________________________
+Enhancement :
+- Support for filtered FAQ search.
+
+Ver 2.8.1 
+__________________________
+Fix :
+- iOS 13 Dark Mode UI Fixes.
+
+Ver 2.8.0 
+__________________________
+Feature :
+Support for showing proactive reply suggestions.
+Bug Fix :
+Push notification token fix for apps built via Xcode 11.
+
+Ver 2.7.2 
+__________________________
+Fixes :
+- iOS 13 UI fixes and enhancements.
+- Fix App Store warning for deprecated UIWebView.
 
 Ver 2.7.1 
 __________________________

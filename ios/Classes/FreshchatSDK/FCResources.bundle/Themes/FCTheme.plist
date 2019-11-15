@@ -291,6 +291,27 @@
 			<key>icon</key>
 			<string>FCResources.bundle/Images/freshchat_unsupported_content_icon</string>
 		</dict>
+		<key>QuickReplyStyle</key>
+		<dict>
+			<key>background</key>
+			<string>#FFFFFF</string>
+			<key>fontName</key>
+			<string>Arial</string>
+			<key>textSize</key>
+			<string>15.0f</string>
+			<key>textColor</key>
+			<string>#FFFFFF</string>
+			<key>cellBackground</key>
+			<string>#0380fc</string>
+			<key>cornerRadius</key>
+			<string>10</string>
+			<key>cellPadding</key>
+			<string>10</string>
+			<key>rowPadding</key>
+			<string>10</string>
+			<key>maxHeightPercentage</key>
+			<string>35</string>
+		</dict>
 	</dict>
 	<key>ChannelList</key>
 	<dict>

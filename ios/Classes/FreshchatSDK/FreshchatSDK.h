@@ -572,6 +572,14 @@ typedef enum {
 - (id) valueForEventProperty : (FCEventProperty) property;
 
 
+/**
+ * Freshchat screen's event name in String
+ *
+ * @discussion this method lets you to get string value of the Freshchat event
+ *
+ */
+- (NSString *) getEventName;
+
 @end
 
 @interface FreshchatMessage : NSObject
