@@ -1,5 +1,9 @@
-part of firebase_auth;
+part of freshchat;
 
+/// [FreshchatUser] is a User object that provides basic user informtation.
+///
+/// You can send basic user information at any point to give you more context
+/// on the user when your support agents are messaging back and forth with them.
 class FreshchatUser {
   String id;
   String email;

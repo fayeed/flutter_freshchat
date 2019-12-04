@@ -1,4 +1,4 @@
-library firebase_auth;
+library freshchat;
 
 import 'dart:async';
 import 'package:flutter/services.dart';
