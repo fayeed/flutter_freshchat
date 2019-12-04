@@ -19,10 +19,10 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/path_provider/ios"
 
 SPEC CHECKSUMS:
-  Flutter: 9d0fac939486c9aba2809b7982dfdbb47a7b0296
-  flutter_freshchat: 4d4f94ab4017d2ed0fd3ad4ccc56b068a2bff721
-  path_provider: 09407919825bfe3c2deae39453b7a5b44f467873
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  flutter_freshchat: 6c8631baa242ca51e03fdb86c48db031429527d4
+  path_provider: f96fff6166a8867510d2c25fdcc346327cc4b259
 
 PODFILE CHECKSUM: ebd43b443038e611b86ede96e613bd6033c49497
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.8.4
