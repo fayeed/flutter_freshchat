@@ -50,9 +50,15 @@ public class FlutterFreshchatPlugin implements MethodCallHandler {
             final String appID = call.argument("appID");
             final String appKey = call.argument("appKey");
             final boolean cameraEnabled = call.argument("cameraEnabled");
+            final boolean gallerySelectionEnabled = call.argument("gallerySelectionEnabled");
+            final boolean teamMemberInfoVisible = call.argument("teamMemberInfoVisible");
+            final boolean responseExpectationEnabled = call.argument("responseExpectationEnabled");
 
             FreshchatConfig freshchatConfig = new FreshchatConfig(appID, appKey);
             freshchatConfig.setCameraCaptureEnabled(cameraEnabled);
+            freshchatConfig.setGallerySelectionEnabled(gallerySelectionEnabled);
+            freshchatConfig.setResponseExpectationEnabled(responseExpectationEnabled);
+            freshchatConfig.setTeamMemberInfoVisible(teamMemberInfoVisible);
 
             Freshchat.getInstance(this.application.getApplicationContext()).init(freshchatConfig);
             result.success(true);

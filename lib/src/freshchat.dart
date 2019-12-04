@@ -8,11 +8,21 @@ class FlutterFreshchat {
     @required String appID,
     @required String appKey,
     bool cameraEnabled = true,
+    bool gallerySelectionEnabled = true,
+    bool teamMemberInfoVisible = true,
+    bool responseExpectationEnabled = true,
+    bool showNotificationBanner = true,
+    bool notificationSoundEnabled = true,
   }) async {
     final Map<String, dynamic> params = <String, dynamic>{
       'appID': appID,
       'appKey': appKey,
-      'cameraEnabled': cameraEnabled
+      'cameraEnabled': cameraEnabled,
+      'gallerySelectionEnabled': gallerySelectionEnabled,
+      'teamMemberInfoVisible': teamMemberInfoVisible,
+      'responseExpectationEnabled': responseExpectationEnabled,
+      'showNotificationBanner': showNotificationBanner,
+      'notificationSoundEnabled': notificationSoundEnabled,
     };
     final bool result = await _channel.invokeMethod('init', params);
     return result;

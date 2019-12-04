@@ -34,8 +34,24 @@ public class SwiftFlutterFreshchatPlugin: NSObject, FlutterPlugin {
                 let arguments = call.arguments as! [String: Any]
                 let appID = arguments["appID"] as! String
                 let appKey = arguments["appKey"] as! String
+                let cameraEnabled = arguments["cameraEnabled"] as! Bool
+                let gallerySelectionEnabled = arguments["gallerySelectionEnabled"] as! Bool
+                let teamMemberInfoVisible = arguments["teamMemberInfoVisible"] as! Bool
+                let responseExpectationEnabled = arguments["responseExpectationEnabled"] as! Bool
+                let showNotificationBanner = arguments["showNotificationBanner"] as! Bool
+                let notificationSoundEnabled = arguments["notificationSoundEnabled"] as! Bool
+                
                 let freshchatConfig = FreshchatConfig.init(appID: appID, andAppKey: appKey)
+
+                freshchatConfig?.gallerySelectionEnabled = gallerySelectionEnabled
+                freshchatConfig?.cameraCaptureEnabled = cameraEnabled
+                freshchatConfig?.teamMemberInfoVisible = teamMemberInfoVisible 
+                freshchatConfig?.showNotificationBanner = showNotificationBanner 
+                freshchatConfig?.responseExpectationVisible = responseExpectationEnabled
+                freshchatConfig?.notificationSoundEnabled = notificationSoundEnabled
+
                 Freshchat.sharedInstance().initWith(freshchatConfig)
+                
                 result(true)
 
             case SwiftFlutterFreshchatPlugin.METHOD_IDENTIFY_USER:
