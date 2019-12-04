@@ -1,3 +1,9 @@
+## 1.2.4
+
+- New properties added to `FreshchatConfig`.
+- Code documented.
+- Namespace updated.
+
 ## 1.2.3
 
 - Upgraded iOS sdk to 2.9.0.
@@ -9,7 +15,6 @@
 ## 1.2.1
 
 - Freshchat android dependency updated to version `2.9.0` from `2.4.1`
-
 
 ## 1.2.0
 

@@ -31,18 +31,19 @@ Add this to your `Strings.xml` located inside `android/src/res/values`
 ### IOS
 
 1. If you are using Objective-C in your flutter project then you will need to create a briging header between objective-C and swift to do that follow the steps below:
->- Bridging Header must be created.
->- Open the project with XCode. Then choose File -> New -> File -> Swift File.
->- A dialog will be displayed when creating the swift file(Since this file is deleted, any name can be used.).
->- XCode will ask you if you wish to create Bridging Header, click yes.
->- Make sure you have use_frameworks! in the Runner block, in ios/Podfile。
->- Make sure you have SWIFT_VERSION 4.2 selected in you XCode -> Build Settings
->- Do flutter clean.
->- Go to your ios folder, delete Podfile.lock and Pods folder and then execute pod install --repo-update
+
+   > - Bridging Header must be created.
+   > - Open the project with XCode. Then choose File -> New -> File -> Swift File.
+   > - A dialog will be displayed when creating the swift file(Since this file is deleted, any name can be used.).
+   > - XCode will ask you if you wish to create Bridging Header, click yes.
+   > - Make sure you have use_frameworks! in the Runner block, in ios/Podfile。
+   > - Make sure you have SWIFT_VERSION 4.2 selected in you XCode -> Build Settings
+   > - Do flutter clean.
+   > - Go to your ios folder, delete Podfile.lock and Pods folder and then execute pod install --repo-update
 
 2. Add `use_frameworks!` at the top of your Podfile.
-3. Add this to info.plist 
->Starting with iOS 10, Apple requires developers to declare access to privacy-sensitive controls ahead of time.
+3. Add this to info.plist
+   > Starting with iOS 10, Apple requires developers to declare access to privacy-sensitive controls ahead of time.
 
 ```xml
     <key>NSPhotoLibraryUsageDescription</key>
@@ -59,8 +60,6 @@ Add this to your `Strings.xml` located inside `android/src/res/values`
 - Select Build Phases and then go to Compile Sources.
 - Look for two `info.plist` entries and remove them. -->
 
-
-
 ## Usage
 
 To use this plugin, add `flutter_freshchat` as a [dependency in your pubspec.yaml file](https://flutter.io/platform-plugins/).
@@ -69,9 +68,26 @@ To use this plugin, add `flutter_freshchat` as a [dependency in your pubspec.yam
 import 'package:flutter_freshchat/flutter_freshchat.dart';
 ```
 
-Initialize the Freshchat app with `appID` and `appKey` which you could get from here: [Where to find App ID and App Key](https://support.freshchat.com/support/solutions/articles/229192)\
-It also has `cameraEnabled` parameter with default value set to `true`.\
-You can disable the camera by setting it to `false`.
+Initialize the Freshchat app with `appID` and `appKey` which you could get from here: [Where to find App ID and App Key](https://support.freshchat.com/support/solutions/articles/229192)<br/><br/>
+It has following [FreshchatConfig] properties:
+
+- `cameraEnabled` property is used to either enable or disable camera
+  within freshchat conversation widget. It default value is set to `true`.
+
+- `gallerySelectionEnabled` property is used to either enable or disable gallery
+  within freshchat conversation widget. It default value is set to `true`.
+
+- `teamMemberInfoVisible` property is used to show team member info
+  within freshchat conversation widget. It default value is set to `true`.
+
+- `responseExpectationEnabled` property is used to show exceptions that occur
+  within freshchat conversation widget. It default value is set to `true`.
+
+- `showNotificationBanner` property is used enabled or disable in-app notfication
+  banner. It default value is set to `true`. (NOTE: IOS only).
+
+- `notificationSoundEnabled` property is used enabled or disable in-app notfication
+  sound. It default value is set to `true`. (NOTE: IOS only).
 
 ```dart
 await FlutterFreshchat.init(appID: 'YOUR_APP_ID_HERE', appKey: 'YOUR_APP_KEY_HERE');
