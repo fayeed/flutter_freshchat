@@ -127,6 +127,7 @@ public class SwiftFlutterFreshchatPlugin: NSObject, FlutterPlugin {
                 })
 
             case SwiftFlutterFreshchatPlugin.METHOD_SEND_MESSAGE:
+                let arguments = call.arguments as! [String: String]
                 let message:String = arguments["message"] ?? ""
                 let tag:String = arguments["tag"] ?? ""
                 let freshchatMessage = FreshchatMessage.init(message: message, andTag: tag)
