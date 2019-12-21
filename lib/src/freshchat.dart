@@ -151,4 +151,16 @@ class FlutterFreshchat {
 
     return result;
   }
+
+  /// Send message
+  static Future<bool> send({@required String message, String tag}) async {
+    final Map<String, dynamic> params = <String, dynamic>{
+      message: message,
+      tag: tag
+    };
+
+    final bool result = await _channel.invokeMethod('send', params);
+
+    return result;
+  }
 }
