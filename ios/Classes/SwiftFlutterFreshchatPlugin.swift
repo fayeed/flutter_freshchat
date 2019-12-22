@@ -10,6 +10,7 @@ public class SwiftFlutterFreshchatPlugin: NSObject, FlutterPlugin {
     private static let METHOD_SHOW_FAQS = "showFAQs"
     private static let METHOD_GET_UNREAD_MESSAGE_COUNT = "getUnreadMsgCount"
     private static let METHOD_SETUP_PUSH_NOTIFICATIONS = "setupPushNotifications"
+    private static let METHOD_SEND_MESSAGE = "send"
     private let registrar: FlutterPluginRegistrar
 
     init(registrar: FlutterPluginRegistrar) {
@@ -124,6 +125,13 @@ public class SwiftFlutterFreshchatPlugin: NSObject, FlutterPlugin {
                 Freshchat.sharedInstance().resetUser(completion: { () in
                     result(true)
                 })
+
+            case SwiftFlutterFreshchatPlugin.METHOD_SEND_MESSAGE:
+                let arguments = call.arguments as! [String: String]
+                let message:String = arguments["message"] ?? ""
+                let tag:String = arguments["tag"] ?? ""
+                let freshchatMessage = FreshchatMessage.init(message: message, andTag: tag)
+                Freshchat.sharedInstance().send(freshchatMessage)
 
             default:
                 result(false)

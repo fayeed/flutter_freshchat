@@ -11,6 +11,7 @@ import com.freshchat.consumer.sdk.Freshchat;
 import com.freshchat.consumer.sdk.FreshchatCallbackStatus;
 import com.freshchat.consumer.sdk.FreshchatConfig;
 import com.freshchat.consumer.sdk.FreshchatUser;
+import com.freshchat.consumer.sdk.FreshchatMessage;
 import com.freshchat.consumer.sdk.ConversationOptions;
 import com.freshchat.consumer.sdk.UnreadCountCallback;
 import com.freshchat.consumer.sdk.exception.MethodNotAllowedException;
@@ -32,6 +33,7 @@ public class FlutterFreshchatPlugin implements MethodCallHandler {
     private static final String METHOD_SHOW_FAQS = "showFAQs";
     private static final String METHOD_GET_UNREAD_MESSAGE_COUNT = "getUnreadMsgCount";
     private static final String METHOD_SETUP_PUSH_NOTIFICATIONS = "setupPushNotifications";
+    private static final String METHOD_SEND_MESSAGE = "send";
 
     public static void registerWith(Registrar registrar) {
         final MethodChannel channel = new MethodChannel(registrar.messenger(), "flutter_freshchat");
@@ -146,6 +148,15 @@ public class FlutterFreshchatPlugin implements MethodCallHandler {
             break;
         case METHOD_RESET_USER:
             Freshchat.resetUser(this.application.getApplicationContext());
+            result.success(true);
+            break;
+        case METHOD_SEND_MESSAGE:
+            final String message = call.argument["message"];
+            final String tag = call.argument["tag"];
+            FreshchatMessage freshchatMessage = new FreshchatMessage();
+            freshchatMessage.setTag(channel);
+            freshchatMessage.setMessage(message);
+            Freshchat.sendMessage(this.application.getApplicationContext(), freshchatMessage);
             result.success(true);
             break;
         default:
