@@ -22,6 +22,13 @@ Add this to your `AndroidManifest.xml`
 </provider>
 ```
 
+If you have migrated to AndroidX your might need change the provider attribute `android:name` to this:
+
+```xml
+<provider android:name="androidx.core.content.FileProvider">
+</provider>
+```
+
 Add this to your `Strings.xml` located inside `android/src/res/values`
 
 ```xml
@@ -123,6 +130,12 @@ Show conversation opens a conversation screen and also list all the other conver
 
 ```dart
 await FlutterFreshchat.showConversations(tags: const [], title: 'CHAT_SCREEN_TITLE');
+```
+
+Send message directly within the app without opening the Freshchat interface. `tag` is optional.
+
+```dart
+await FlutterFreshchat.send(message: 'YOUR_MESSAGE_HERE', tag: 'YOUR_TAG_HERE');
 ```
 
 ShowFAQs opens a FAQ screen in a grid like format as default you can change the default setting by changing this paramters.<br>

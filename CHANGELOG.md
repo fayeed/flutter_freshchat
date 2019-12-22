@@ -1,3 +1,7 @@
+## 1.2.5
+
+- A new method added for sending message.
+
 ## 1.2.4
 
 - New properties added to `FreshchatConfig`.
