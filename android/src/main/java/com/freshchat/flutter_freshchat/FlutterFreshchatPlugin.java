@@ -151,10 +151,10 @@ public class FlutterFreshchatPlugin implements MethodCallHandler {
             result.success(true);
             break;
         case METHOD_SEND_MESSAGE:
-            final String message = call.argument["message"];
-            final String tag = call.argument["tag"];
+            final String message = call.argument("message");
+            final String tag = call.argument("tag");
             FreshchatMessage freshchatMessage = new FreshchatMessage();
-            freshchatMessage.setTag(channel);
+            freshchatMessage.setTag(tag);
             freshchatMessage.setMessage(message);
             Freshchat.sendMessage(this.application.getApplicationContext(), freshchatMessage);
             result.success(true);

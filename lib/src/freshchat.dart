@@ -144,7 +144,7 @@ class FlutterFreshchat {
 
   /// Setup Push notification for freshchat by passing `token` to the methd.
   static Future<bool> setupPushNotifications({@required String token}) async {
-    final Map<String, dynamic> params = <String, dynamic>{token: token};
+    final Map<String, dynamic> params = <String, dynamic>{"token": token};
 
     final bool result =
         await _channel.invokeMethod('setupPushNotifications', params);
@@ -155,8 +155,8 @@ class FlutterFreshchat {
   /// Send message
   static Future<bool> send({@required String message, String tag}) async {
     final Map<String, dynamic> params = <String, dynamic>{
-      message: message,
-      tag: tag
+      " message": message,
+      "tag": tag
     };
 
     final bool result = await _channel.invokeMethod('send', params);
