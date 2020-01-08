@@ -1,3 +1,7 @@
+## 1.2.6
+
+- Fixed a issue that was causing a crash on iOS.
+
 ## 1.2.5
 
 - A new method added for sending message.
