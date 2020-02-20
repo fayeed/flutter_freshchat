@@ -63,6 +63,7 @@ public class FlutterFreshchatPlugin implements MethodCallHandler {
             freshchatConfig.setTeamMemberInfoVisible(teamMemberInfoVisible);
 
             Freshchat.getInstance(this.application.getApplicationContext()).init(freshchatConfig);
+            Freshchat.setImageLoader(this.application.getApplicationContext())
             result.success(true);
             break;
         case METHOD_IDENTIFY_USER:
