@@ -31,5 +31,5 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.freshdesk:freshchat-android:2.9.0'
+    implementation 'com.github.freshdesk:freshchat-android:3.3.0'
 }
