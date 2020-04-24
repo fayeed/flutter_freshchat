@@ -17,7 +17,7 @@ A Flutter plugin for integrating Freshchat in your mobile app.
   s.dependency 'Flutter'
   s.dependency 'FreshchatSDK'
   s.frameworks 			 = "Foundation", "AVFoundation", "AudioToolbox", "CoreMedia", "CoreData", "ImageIO", "Photos", "SystemConfiguration", "Security", "WebKit"
-  s.static_framework = true
+  s.requires_arc     = true
   s.ios.deployment_target = '8.0'
 end
 
