@@ -1,4 +1,4 @@
-#
+  #
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
 #
 Pod::Spec.new do |s|
@@ -10,15 +10,14 @@ A Flutter plugin for integrating Freshchat in your mobile app.
                        DESC
   s.homepage         = 'https://github.com/fayeed/flutter_freshchat'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Prabhakar Bhat' => 'prabhakarbhat@live.com' }
+  s.author           = { 'Fayeed Pawaskar' => 'fayeed@live.com' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*.{h,m,swift}'
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
-  s.resources 			 = "Classes/FreshchatSDK/FCResources.bundle", "Classes/FreshchatSDK/FreshchatModels.bundle", "Classes/FreshchatSDK/FCLocalization.bundle"
-  s.ios.vendored_library = "Classes/FreshchatSDK/libFDFreshchatSDK.a"
+  s.dependency 'FreshchatSDK'
   s.frameworks 			 = "Foundation", "AVFoundation", "AudioToolbox", "CoreMedia", "CoreData", "ImageIO", "Photos", "SystemConfiguration", "Security", "WebKit"
-  s.requires_arc 		 = true
+  s.static_framework = true
   s.ios.deployment_target = '8.0'
 end
 

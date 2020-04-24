@@ -1,3 +1,12 @@
+## 1.3.0
+
+- Freshchat dependency for android upgraded to `3.3.0`
+- Freshchat dependency for IOS upgraded to `3.4.0`
+
+## 1.2.6
+
+- Fixed a issue that was causing a crash on iOS.
+
 ## 1.2.5
 
 - A new method added for sending message.
