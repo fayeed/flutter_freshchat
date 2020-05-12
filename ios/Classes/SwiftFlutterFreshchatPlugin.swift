@@ -35,6 +35,7 @@ public class SwiftFlutterFreshchatPlugin: NSObject, FlutterPlugin {
                 let arguments = call.arguments as! [String: Any]
                 let appID = arguments["appID"] as! String
                 let appKey = arguments["appKey"] as! String
+                let domain = arguments["domain"] as! String
                 let cameraEnabled = arguments["cameraEnabled"] as! Bool
                 let gallerySelectionEnabled = arguments["gallerySelectionEnabled"] as! Bool
                 let teamMemberInfoVisible = arguments["teamMemberInfoVisible"] as! Bool
@@ -50,6 +51,7 @@ public class SwiftFlutterFreshchatPlugin: NSObject, FlutterPlugin {
                 freshchatConfig?.showNotificationBanner = showNotificationBanner 
                 freshchatConfig?.responseExpectationVisible = responseExpectationEnabled
                 freshchatConfig?.notificationSoundEnabled = notificationSoundEnabled
+                freshchatConfig?.domain = domain
 
                 Freshchat.sharedInstance().initWith(freshchatConfig)
                 

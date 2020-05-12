@@ -51,6 +51,7 @@ public class FlutterFreshchatPlugin implements MethodCallHandler {
         case METHOD_INIT:
             final String appID = call.argument("appID");
             final String appKey = call.argument("appKey");
+            final String domain = call.argument("domain");
             final boolean cameraEnabled = call.argument("cameraEnabled");
             final boolean gallerySelectionEnabled = call.argument("gallerySelectionEnabled");
             final boolean teamMemberInfoVisible = call.argument("teamMemberInfoVisible");
@@ -61,6 +62,7 @@ public class FlutterFreshchatPlugin implements MethodCallHandler {
             freshchatConfig.setGallerySelectionEnabled(gallerySelectionEnabled);
             freshchatConfig.setResponseExpectationEnabled(responseExpectationEnabled);
             freshchatConfig.setTeamMemberInfoVisible(teamMemberInfoVisible);
+            freshchatConfig.setDomain(domain);
 
             Freshchat.getInstance(this.application.getApplicationContext()).init(freshchatConfig);
             result.success(true);
