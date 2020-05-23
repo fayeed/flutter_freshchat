@@ -63,7 +63,7 @@ public class FlutterFreshchatPlugin implements MethodCallHandler {
             freshchatConfig.setResponseExpectationEnabled(responseExpectationEnabled);
             freshchatConfig.setTeamMemberInfoVisible(teamMemberInfoVisible);
             freshchatConfig.setDomain(domain);
-
+            
             Freshchat.getInstance(this.application.getApplicationContext()).init(freshchatConfig);
             result.success(true);
             break;
