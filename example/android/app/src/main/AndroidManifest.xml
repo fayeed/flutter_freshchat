@@ -11,7 +11,7 @@
         android:label="flutter_freshchat_example"
         android:icon="@mipmap/ic_launcher">
         <provider
-        android:name="android.support.v4.content.FileProvider"
+        android:name="androidx.core.content.FileProvider"
         android:authorities="com.freshchat.flutter_freshchat_example.provider"
         android:exported="false"
         android:grantUriPermissions="true">
