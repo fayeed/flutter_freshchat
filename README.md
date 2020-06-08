@@ -75,8 +75,15 @@ To use this plugin, add `flutter_freshchat` as a [dependency in your pubspec.yam
 import 'package:flutter_freshchat/flutter_freshchat.dart';
 ```
 
-Initialize the Freshchat app with `appID` and `appKey` which you could get from here: [Where to find App ID and App Key](https://support.freshchat.com/support/solutions/articles/229192)<br/><br/>
+Initialize the Freshchat app with `appID`, `appKey` & `domain` which you could get from here: [Where to find App ID and App Key](https://support.freshchat.com/support/solutions/articles/229192)<br/><br/>
 It has following [FreshchatConfig] properties:
+
+- `domain` Each Freshchat cluster falls in to one of this domains:
+  - US - https://msdk.freshchat.com (default)
+  - AU - https://msdk.au.freshchat.com
+  - EU - https://msdk.eu.freshchat.com
+  - IN - https://msdk.in.freshchat.com
+  - US2 - https://msdk.us2.freshchat.com
 
 - `cameraEnabled` property is used to either enable or disable camera
   within freshchat conversation widget. It default value is set to `true`.
@@ -97,7 +104,11 @@ It has following [FreshchatConfig] properties:
   sound. It default value is set to `true`. (NOTE: IOS only).
 
 ```dart
-await FlutterFreshchat.init(appID: 'YOUR_APP_ID_HERE', appKey: 'YOUR_APP_KEY_HERE');
+await FlutterFreshchat.init(
+  appID: 'YOUR_APP_ID_HERE', 
+  appKey: 'YOUR_APP_KEY_HERE',
+  domain: 'https://msdk.freshchat.com'
+  );
 ```
 
 Update the user info by setting by creating a `FreshchatUser` object

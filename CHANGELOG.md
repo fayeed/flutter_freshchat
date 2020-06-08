@@ -1,3 +1,8 @@
+## 1.3.1
+
+- Added support for `domain`.
+- Fixed an issue with android where Picaso was unsupported.
+
 ## 1.3.0
 
 - Freshchat dependency for android upgraded to `3.3.0`
