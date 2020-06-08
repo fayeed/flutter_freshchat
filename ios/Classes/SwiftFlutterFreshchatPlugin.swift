@@ -35,6 +35,7 @@ public class SwiftFlutterFreshchatPlugin: NSObject, FlutterPlugin {
                 let arguments = call.arguments as! [String: Any]
                 let appID = arguments["appID"] as! String
                 let appKey = arguments["appKey"] as! String
+                let domain = arguments["domain"] as! String
                 let cameraEnabled = arguments["cameraEnabled"] as! Bool
                 let gallerySelectionEnabled = arguments["gallerySelectionEnabled"] as! Bool
                 let teamMemberInfoVisible = arguments["teamMemberInfoVisible"] as! Bool
@@ -44,12 +45,13 @@ public class SwiftFlutterFreshchatPlugin: NSObject, FlutterPlugin {
                 
                 let freshchatConfig = FreshchatConfig.init(appID: appID, andAppKey: appKey)
 
-                freshchatConfig?.gallerySelectionEnabled = gallerySelectionEnabled
-                freshchatConfig?.cameraCaptureEnabled = cameraEnabled
-                freshchatConfig?.teamMemberInfoVisible = teamMemberInfoVisible 
-                freshchatConfig?.showNotificationBanner = showNotificationBanner 
-                freshchatConfig?.responseExpectationVisible = responseExpectationEnabled
-                freshchatConfig?.notificationSoundEnabled = notificationSoundEnabled
+                freshchatConfig.gallerySelectionEnabled = gallerySelectionEnabled
+                freshchatConfig.cameraCaptureEnabled = cameraEnabled
+                freshchatConfig.teamMemberInfoVisible = teamMemberInfoVisible
+                freshchatConfig.showNotificationBanner = showNotificationBanner
+                freshchatConfig.responseExpectationVisible = responseExpectationEnabled
+                freshchatConfig.notificationSoundEnabled = notificationSoundEnabled
+                freshchatConfig.domain = domain
 
                 Freshchat.sharedInstance().initWith(freshchatConfig)
                 
@@ -61,10 +63,10 @@ public class SwiftFlutterFreshchatPlugin: NSObject, FlutterPlugin {
                 var restoreId = arguments["restoreID"]
 
                 if (restoreId == "") {
-                    Freshchat.sharedInstance().identifyUser(withExternalID: externalId, restoreID: nil)
+                    Freshchat.sharedInstance().identifyUser(withExternalID: externalId!, restoreID: nil)
                     restoreId = FreshchatUser.sharedInstance().restoreID
                 } else {
-                    Freshchat.sharedInstance().identifyUser(withExternalID: externalId, restoreID: restoreId)
+                    Freshchat.sharedInstance().identifyUser(withExternalID: externalId!, restoreID: restoreId)
                 }
                 result(restoreId)
 
@@ -72,11 +74,11 @@ public class SwiftFlutterFreshchatPlugin: NSObject, FlutterPlugin {
                 let arguments = call.arguments as! [String: Any]
                 let customProperties = arguments["custom_property_list"] as? [String: String]
                 let user = FreshchatUser.sharedInstance()
-                user?.firstName = arguments["first_name"] as? String
-                user?.lastName = arguments["last_name"] as? String
-                user?.phoneNumber  = arguments["phone"] as? String
-                user?.email = arguments["email"] as? String
-                user?.phoneCountryCode = arguments["phone_country_code"] as? String
+                user.firstName = arguments["first_name"] as? String
+                user.lastName = arguments["last_name"] as? String
+                user.phoneNumber  = arguments["phone"] as? String
+                user.email = arguments["email"] as? String
+                user.phoneCountryCode = arguments["phone_country_code"] as? String
 
                 Freshchat.sharedInstance().setUser(user)
 
@@ -118,7 +120,7 @@ public class SwiftFlutterFreshchatPlugin: NSObject, FlutterPlugin {
             case SwiftFlutterFreshchatPlugin.METHOD_SETUP_PUSH_NOTIFICATIONS:
                 let arguments = call.arguments as! [String: String]
                 let token:String = arguments["token"] ?? ""
-                Freshchat.sharedInstance().setPushRegistrationToken(token.data(using: .utf8))
+                Freshchat.sharedInstance().setPushRegistrationToken(token.data(using: .utf8)!)
                 result(true)
 
             case SwiftFlutterFreshchatPlugin.METHOD_RESET_USER:

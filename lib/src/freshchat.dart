@@ -29,6 +29,7 @@ class FlutterFreshchat {
   static Future<bool> init({
     @required String appID,
     @required String appKey,
+    @required String domain,
     bool cameraEnabled = true,
     bool gallerySelectionEnabled = true,
     bool teamMemberInfoVisible = true,
@@ -39,6 +40,7 @@ class FlutterFreshchat {
     final Map<String, dynamic> params = <String, dynamic>{
       'appID': appID,
       'appKey': appKey,
+      'domain': domain,
       'cameraEnabled': cameraEnabled,
       'gallerySelectionEnabled': gallerySelectionEnabled,
       'teamMemberInfoVisible': teamMemberInfoVisible,
