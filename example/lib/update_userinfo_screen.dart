@@ -65,7 +65,7 @@ class UpdateUserInfoState extends State<UpdateUserInfoScreen> {
               TextFormField(
                 decoration: InputDecoration(
                     hintText: 'xyz@test.com',
-                    labelText: 'Eenter Email address'),
+                    labelText: 'Enter Email address'),
                 onSaved: (value) {
                   print(value);
                   this._email = value;
@@ -125,7 +125,7 @@ class UpdateUserInfoState extends State<UpdateUserInfoScreen> {
 
                     await storage.setItem('uid', this._email);
 
-                    FreshchatUser user = FreshchatUser.initail();
+                    FreshchatUser user = FreshchatUser.initial();
                     user.email = _email;
                     user.firstName = _firstName;
                     user.lastName = _lastName;

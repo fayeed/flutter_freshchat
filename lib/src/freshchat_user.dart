@@ -14,7 +14,7 @@ class FreshchatUser {
   String lastName;
   String phoneCountryCode;
 
-  FreshchatUser.initail()
+  FreshchatUser.initial()
       : id = "",
         email = "",
         referenceId = "",
