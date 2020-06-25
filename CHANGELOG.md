@@ -1,3 +1,7 @@
+## 1.3.2
+
+- Fixed Typos
+
 ## 1.3.1
 
 - Added support for `domain`.
