@@ -157,7 +157,7 @@ class FlutterFreshchat {
   /// Send message
   static Future<bool> send({@required String message, String tag}) async {
     final Map<String, dynamic> params = <String, dynamic>{
-      " message": message,
+      "message": message,
       "tag": tag
     };
 

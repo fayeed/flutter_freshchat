@@ -97,10 +97,10 @@ It has following [FreshchatConfig] properties:
 - `responseExpectationEnabled` property is used to show exceptions that occur
   within freshchat conversation widget. It default value is set to `true`.
 
-- `showNotificationBanner` property is used enabled or disable in-app notfication
+- `showNotificationBanner` property is used enabled or disable in-app notification
   banner. It default value is set to `true`. (NOTE: IOS only).
 
-- `notificationSoundEnabled` property is used enabled or disable in-app notfication
+- `notificationSoundEnabled` property is used enabled or disable in-app notification
   sound. It default value is set to `true`. (NOTE: IOS only).
 
 ```dart
@@ -114,9 +114,9 @@ await FlutterFreshchat.init(
 Update the user info by setting by creating a `FreshchatUser` object
 
 ```dart
-FreshchatUser user = FreshchatUser.initail();
-user.email = "jhon@test.com";
-user.firstName = "jhon";
+FreshchatUser user = FreshchatUser.initial();
+user.email = "john@test.com";
+user.firstName = "john";
 user.lastName = "doe";
 user.phoneCountryCode = "+91";
 user.phone = "0123456789";
@@ -134,10 +134,10 @@ Identify the user user by usin email address or any way you uniquely identify th
 `externalID` is required and returns a `restoreID` you can save it and use to restore the chats
 
 ```dart
-await FlutterFreshchat.identifyUser(externalID: 'USER_UNQIUE_ID', restoreID: 'USER_RESTORE_ID');
+await FlutterFreshchat.identifyUser(externalID: 'USER_UNIQUE_ID', restoreID: 'USER_RESTORE_ID');
 ```
 
-Show conversation opens a conversation screen and also list all the other conversation if a list obejct is supplied to it. You can also pass a title for teh chat screen.
+Show conversation opens a conversation screen and also list all the other conversation if a list obejct is supplied to it. You can also pass a title for the chat screen.
 
 ```dart
 await FlutterFreshchat.showConversations(tags: const [], title: 'CHAT_SCREEN_TITLE');
