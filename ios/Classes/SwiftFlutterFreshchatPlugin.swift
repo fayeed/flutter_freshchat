@@ -42,19 +42,19 @@ public class SwiftFlutterFreshchatPlugin: NSObject, FlutterPlugin {
                 let responseExpectationEnabled = arguments["responseExpectationEnabled"] as! Bool
                 let showNotificationBanner = arguments["showNotificationBanner"] as! Bool
                 let notificationSoundEnabled = arguments["notificationSoundEnabled"] as! Bool
-                
+
                 let freshchatConfig = FreshchatConfig.init(appID: appID, andAppKey: appKey)
 
-                freshchatConfig?.gallerySelectionEnabled = gallerySelectionEnabled
-                freshchatConfig?.cameraCaptureEnabled = cameraEnabled
-                freshchatConfig?.teamMemberInfoVisible = teamMemberInfoVisible
-                freshchatConfig?.showNotificationBanner = showNotificationBanner
-                freshchatConfig?.responseExpectationVisible = responseExpectationEnabled
-                freshchatConfig?.notificationSoundEnabled = notificationSoundEnabled
-                freshchatConfig?.domain = domain
+                freshchatConfig.gallerySelectionEnabled = gallerySelectionEnabled
+                freshchatConfig.cameraCaptureEnabled = cameraEnabled
+                freshchatConfig.teamMemberInfoVisible = teamMemberInfoVisible
+                freshchatConfig.showNotificationBanner = showNotificationBanner
+                freshchatConfig.responseExpectationVisible = responseExpectationEnabled
+                freshchatConfig.notificationSoundEnabled = notificationSoundEnabled
+                freshchatConfig.domain = domain
 
                 Freshchat.sharedInstance().initWith(freshchatConfig)
-                
+
                 result(true)
 
             case SwiftFlutterFreshchatPlugin.METHOD_IDENTIFY_USER:
@@ -74,11 +74,11 @@ public class SwiftFlutterFreshchatPlugin: NSObject, FlutterPlugin {
                 let arguments = call.arguments as! [String: Any]
                 let customProperties = arguments["custom_property_list"] as? [String: String]
                 let user = FreshchatUser.sharedInstance()
-                user?.firstName = arguments["first_name"] as? String
-                user?.lastName = arguments["last_name"] as? String
-                user?.phoneNumber  = arguments["phone"] as? String
-                user?.email = arguments["email"] as? String
-                user?.phoneCountryCode = arguments["phone_country_code"] as? String
+                user.firstName = arguments["first_name"] as? String
+                user.lastName = arguments["last_name"] as? String
+                user.phoneNumber  = arguments["phone"] as? String
+                user.email = arguments["email"] as? String
+                user.phoneCountryCode = arguments["phone_country_code"] as? String
 
                 Freshchat.sharedInstance().setUser(user)
 
