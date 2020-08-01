@@ -35,6 +35,63 @@ Add this to your `Strings.xml` located inside `android/src/res/values`
 <string name="freshchat_file_provider_authority">com.example.demoapp.provider</string>
 ```
 
+**Firebase Cloud Messaging support**
+
+1. Add dependency in `<app-name>/android/app/build.gradle`
+
+```
+dependencies {
+  // ...
+  implementation "com.github.freshdesk:freshchat-android:3.3.0"
+}
+```
+
+2. Create `FreshchatMessagingService.java` (Java, not Kotlin) class to your app in the same directory as your `MainActivity` class
+
+```
+package <your package's identifier>;
+
+import com.freshchat.consumer.sdk.Freshchat;
+import com.google.firebase.messaging.RemoteMessage;
+import io.flutter.plugins.firebasemessaging.FlutterFirebaseMessagingService;
+
+
+public class FreshchatMessagingService extends FlutterFirebaseMessagingService {
+
+    @Override
+    public void onNewToken(String token) {
+        super.onNewToken(token);
+    }
+
+    @Override
+    public void onMessageReceived(final RemoteMessage remoteMessage) {
+        super.onMessageReceived(remoteMessage);
+        if (Freshchat.isFreshchatNotification(remoteMessage)) {
+            Freshchat.handleFcmMessage(this, remoteMessage);
+        }
+    }
+}
+```
+
+3. In `AndroidManifest.xml` add
+
+```
+<service android:name=".FreshchatMessagingService">
+  <intent-filter>
+    <action android:name="com.google.firebase.MESSAGING_EVENT" />
+  </intent-filter>
+</service>
+```
+
+4. In your `Application` class change
+```
+FlutterFirebaseMessagingService.setPluginRegistrant(this)
+```
+to
+```
+FreshchatMessagingService.setPluginRegistrant(this)
+```
+
 ### IOS
 
 1. If you are using Objective-C in your flutter project then you will need to create a briging header between objective-C and swift to do that follow the steps below:
