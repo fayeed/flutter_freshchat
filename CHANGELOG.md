@@ -1,3 +1,10 @@
+## 1.4.0
+
+- Remove incorrect null safe access
+- Podspec include swift for umbrella header support
+- Include import fallback in .m
+- Update IOS README.MD
+
 ## 1.3.2
 
 - Fixed Typos
