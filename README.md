@@ -39,22 +39,20 @@ Add this to your `Strings.xml` located inside `android/src/res/values`
 
 1. Add dependency in `<app-name>/android/app/build.gradle`
 
-```
+```gradle
 dependencies {
-  // ...
   implementation "com.github.freshdesk:freshchat-android:3.3.0"
 }
 ```
 
 2. Create `FreshchatMessagingService.java` (Java, not Kotlin) class to your app in the same directory as your `MainActivity` class
 
-```
-package <your package's identifier>;
+```java
+package com.example.app;
 
 import com.freshchat.consumer.sdk.Freshchat;
 import com.google.firebase.messaging.RemoteMessage;
 import io.flutter.plugins.firebasemessaging.FlutterFirebaseMessagingService;
-
 
 public class FreshchatMessagingService extends FlutterFirebaseMessagingService {
 
@@ -75,7 +73,7 @@ public class FreshchatMessagingService extends FlutterFirebaseMessagingService {
 
 3. In `AndroidManifest.xml` add
 
-```
+```xml
 <service android:name=".FreshchatMessagingService">
   <intent-filter>
     <action android:name="com.google.firebase.MESSAGING_EVENT" />
@@ -84,11 +82,11 @@ public class FreshchatMessagingService extends FlutterFirebaseMessagingService {
 ```
 
 4. In your `Application` class change
-```
+```java
 FlutterFirebaseMessagingService.setPluginRegistrant(this)
 ```
 to
-```
+```java
 FreshchatMessagingService.setPluginRegistrant(this)
 ```
 
@@ -98,21 +96,21 @@ FreshchatMessagingService.setPluginRegistrant(this)
    > Starting with iOS 10, Apple requires developers to declare access to privacy-sensitive controls ahead of time.
 
 ```xml
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>To Enable access to Photo Library</string>
-    <key>NSCameraUsageDescription</key>
-    <string>To take Images from Camera</string>
+<key>NSPhotoLibraryUsageDescription</key>
+<string>To Enable access to Photo Library</string>
+<key>NSCameraUsageDescription</key>
+<string>To take Images from Camera</string>
 ```
 
 2. If you encounter `non-modular header` error during project build
 
-    ```
-    error: include of non-modular header inside framework module 'flutter_freshchat.FlutterFreshchatPlugin'
-    ```
+```bash
+error: include of non-modular header inside framework module 'flutter_freshchat.FlutterFreshchatPlugin'
+```
 
-   > - Manually in xcode update the FreshchatSDK.h to be in the flutter_freshchat target and public.
-   <img width="930" alt="FreshchatSDK_fix" src="https://user-images.githubusercontent.com/40217827/88995177-452a6880-d2a7-11ea-8cbc-2e47ebf62ff8.png">
-   You may have to do this each time your switch or rebuild the xcode project from flutter.
+> - Manually in xcode update the FreshchatSDK.h to be in the flutter_freshchat target and public.
+<img width="930" alt="FreshchatSDK_fix" src="https://user-images.githubusercontent.com/40217827/88995177-452a6880-d2a7-11ea-8cbc-2e47ebf62ff8.png">
+You may have to do this each time your switch or rebuild the xcode project from flutter.
 
 <!-- 4. At this point if you try to build you will get an error something related to duplicate `info.plist` (Note: It's something to do with Freshchat) you can remove this info by following the below instructions:
 
