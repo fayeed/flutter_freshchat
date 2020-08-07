@@ -94,19 +94,7 @@ FreshchatMessagingService.setPluginRegistrant(this)
 
 ### IOS
 
-1. If you are using Objective-C in your flutter project then you will need to create a briging header between objective-C and swift to do that follow the steps below:
-
-   > - Bridging Header must be created.
-   > - Open the project with XCode. Then choose File -> New -> File -> Swift File.
-   > - A dialog will be displayed when creating the swift file(Since this file is deleted, any name can be used.).
-   > - XCode will ask you if you wish to create Bridging Header, click yes.
-   > - Make sure you have use_frameworks! in the Runner block, in ios/Podfile。
-   > - Make sure you have SWIFT_VERSION 4.2 selected in you XCode -> Build Settings
-   > - Do flutter clean.
-   > - Go to your ios folder, delete Podfile.lock and Pods folder and then execute pod install --repo-update
-
-2. Add `use_frameworks!` at the top of your Podfile.
-3. Add this to info.plist
+1. Add this to info.plist
    > Starting with iOS 10, Apple requires developers to declare access to privacy-sensitive controls ahead of time.
 
 ```xml
@@ -115,6 +103,16 @@ FreshchatMessagingService.setPluginRegistrant(this)
     <key>NSCameraUsageDescription</key>
     <string>To take Images from Camera</string>
 ```
+
+2. If you encounter `non-modular header` error during project build
+
+    ```
+    error: include of non-modular header inside framework module 'flutter_freshchat.FlutterFreshchatPlugin'
+    ```
+
+   > - Manually in xcode update the FreshchatSDK.h to be in the flutter_freshchat target and public.
+   <img width="930" alt="FreshchatSDK_fix" src="https://user-images.githubusercontent.com/40217827/88995177-452a6880-d2a7-11ea-8cbc-2e47ebf62ff8.png">
+   You may have to do this each time your switch or rebuild the xcode project from flutter.
 
 <!-- 4. At this point if you try to build you will get an error something related to duplicate `info.plist` (Note: It's something to do with Freshchat) you can remove this info by following the below instructions:
 
@@ -162,7 +160,7 @@ It has following [FreshchatConfig] properties:
 
 ```dart
 await FlutterFreshchat.init(
-  appID: 'YOUR_APP_ID_HERE', 
+  appID: 'YOUR_APP_ID_HERE',
   appKey: 'YOUR_APP_KEY_HERE',
   domain: 'https://msdk.freshchat.com'
   );
