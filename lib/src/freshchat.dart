@@ -27,9 +27,9 @@ class FlutterFreshchat {
   /// `notificationSoundEnabled` property is used enabled or disable in-app notfication
   /// sound. It default value is set to `true`. (NOTE: IOS only).
   static Future<bool> init({
-    @required String appID,
-    @required String appKey,
-    @required String domain,
+    required String appID,
+    required String appKey,
+    required String domain,
     bool cameraEnabled = true,
     bool gallerySelectionEnabled = true,
     bool teamMemberInfoVisible = true,
@@ -62,8 +62,8 @@ class FlutterFreshchat {
   /// customProperties["loggedIn"] = "true";
   /// ```
   static Future<bool> updateUserInfo({
-    @required FreshchatUser user,
-    Map<String, String> customProperties,
+    required FreshchatUser user,
+    Map<String, String>? customProperties,
   }) async {
     Map<String, dynamic> json = user.toJson();
 
@@ -80,8 +80,8 @@ class FlutterFreshchat {
   /// `externalID` is required and returns a `restoreID` you can save it
   /// and use to restore the chats messages.
   static Future<String> identifyUser({
-    @required String externalID,
-    String restoreID,
+    required String externalID,
+    String? restoreID,
   }) async {
     final Map<String, String> params = <String, String>{
       "externalID": externalID,
@@ -106,7 +106,7 @@ class FlutterFreshchat {
   /// You can also pass a title for the chat screen.
   static Future<bool> showConversations({
     List<String> tags = const [],
-    String title,
+    String? title,
   }) async {
     final Map<String, dynamic> params = <String, dynamic>{
       "tags": tags,
@@ -145,7 +145,7 @@ class FlutterFreshchat {
   }
 
   /// Setup Push notification for freshchat by passing `token` to the methd.
-  static Future<bool> setupPushNotifications({@required String token}) async {
+  static Future<bool> setupPushNotifications({required String token}) async {
     final Map<String, dynamic> params = <String, dynamic>{"token": token};
 
     final bool result =
@@ -155,7 +155,7 @@ class FlutterFreshchat {
   }
 
   /// Send message
-  static Future<bool> send({@required String message, String tag}) async {
+  static Future<bool> send({required String message, String? tag}) async {
     final Map<String, dynamic> params = <String, dynamic>{
       "message": message,
       "tag": tag

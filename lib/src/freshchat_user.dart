@@ -5,14 +5,14 @@ part of freshchat;
 /// You can send basic user information at any point to give you more context
 /// on the user when your support agents are messaging back and forth with them.
 class FreshchatUser {
-  String id;
-  String email;
-  String referenceId;
-  DateTime createdTime;
-  String phone;
-  String firstName;
-  String lastName;
-  String phoneCountryCode;
+  String? id;
+  String? email;
+  String? referenceId;
+  DateTime? createdTime;
+  String? phone;
+  String? firstName;
+  String? lastName;
+  String? phoneCountryCode;
 
   FreshchatUser.initial()
       : id = "",
